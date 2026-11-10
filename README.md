@@ -22,7 +22,7 @@ python manage.py createsuperuser
 python manage.py runserver    # admin en http://localhost:8000/admin/
 ```
 
-Variables de entorno: el proyecto lee `.env` sólo si lo exportás (`set -a; source .env; set +a`) o usás docker compose.
+La configuración se lee desde `.env` en la raíz del proyecto, automáticamente. Si una variable ya está definida en el shell, esa tiene prioridad.
 
 ## Con Docker + Postgres
 

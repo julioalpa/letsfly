@@ -2,7 +2,12 @@
 import os
 from pathlib import Path
 
+from config.env import load_dotenv
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Lee BASE_DIR/.env si existe. Las variables reales del entorno siguen teniendo prioridad.
+load_dotenv(BASE_DIR / ".env")
 
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "cambiar-en-produccion")
 DEBUG = os.environ.get("DJANGO_DEBUG", "1") == "1"
